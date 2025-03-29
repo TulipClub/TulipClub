@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html><html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,15 +11,22 @@
             text-align: center;
             background-color: #f8f9fa;
             color: #333;
+            overflow-x: hidden;
         }
         header {
             background-color: #8b0000;
             color: white;
             padding: 20px 0;
             font-size: 24px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         main {
-            padding: 40px;
+            padding: 100px 20px 40px;
         }
         .container {
             max-width: 800px;
@@ -29,6 +35,23 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transform: perspective(1000px) rotateX(0deg);
+            transition: transform 0.5s ease-in-out;
+        }
+        .container:hover {
+            transform: perspective(1000px) rotateX(10deg);
+        }
+        .animated-text {
+            font-size: 22px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #ffcc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
         }
         footer {
             background-color: #8b0000;
@@ -47,7 +70,7 @@
     <main>
         <div class="container">
             <h1>مرحبًا بك في نادي التوليب</h1>
-            <p>مساحة علمية تجمع المهتمين بالمعرفة والاكتشاف.</p>
+            <p class="animated-text">مساحة علمية تجمع المهتمين بالمعرفة والاكتشاف.</p>
         </div>
     </main>
     <footer>
